@@ -1,3 +1,5 @@
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textsl{#1}}
+
 % # Encoding
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
@@ -11,7 +13,7 @@
 
 
 % # Document structure
-\usepackage[acronym,symbols,nomain,nogroupskip,nonumberlist,nopostdot,toc]{glossaries}
+\usepackage[acronym,symbols,nomain,nogroupskip,nonumberlist,nopostdot,toc,sort=def]{glossaries}
   % * xindy - more flexible than makeindex (sudo apt install xindy)
 \usepackage{glossary-longbooktabs}
   \newglossary[slg]{symbolslist}{syi}{syg}{Symbolslist}
@@ -32,7 +34,7 @@
   % \fancyhead[L]{\sffamily\small Header}
   % \fancyhead[R]{\sffamily\small Page \thepage}
 % \usepackage{fancyvrb}  % highly customisable verbatim
-\usepackage[symbol]{footmisc}  % symbols for footnotemark instead of numbers
+% \usepackage[symbol]{footmisc}  % symbols for footnotemark instead of numbers
 % \usepackage{geometry}  % page dimensions, margins ...
 \usepackage{marginnote}  % margin notes
   \usepackage{mparhack}
@@ -112,6 +114,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}  % blackboard math symbols
 \usepackage{amssymb}
+  \allowdisplaybreaks
 
 % ## other math fonts
 \usepackage{bbm}
@@ -123,6 +126,9 @@
 \usepackage[makeroom]{cancel}
 % \usepackage{commath}  % math delimiters of auto computed size
 \usepackage[retainorgcmds]{IEEEtrantools}  % sophisticated equation arrays
+  \renewcommand*{\IEEEeqnarraydecl}{%
+    \setlength{\jot}{2\IEEEnormaljot}% twice the normal value of \jot
+  }
 % \usepackage{kbordermatrix}  % add column and row labels to matrices
 \usepackage{mathtools}  % \mathclap ...
 \usepackage{physics}  % \bra, \ket, \expval, \mel ...
@@ -135,7 +141,7 @@
 \usepackage{graphicx}  % enhanced support for graphics
   \graphicspath{{figures/}{../figures/}}  % in gereral {{subdir1/}...{subdirn/}}
 \usepackage{movie15}  % inline figures
-% \usepackage{pgfplots}  % uses PGF to draw professionally looking charts and plots
+% \usepackage{pgf,pgfplots}  % uses PGF to draw professionally looking charts and plots
 \usepackage{subcaption}  % subfigures
 % \usepackage{textpos}  % absolute positioning on the page
 % \usepackage{tikz}  % `tikzpictures`
@@ -147,11 +153,24 @@
 \usepackage[dvipsnames]{xcolor}  % color (+ in math mode)
   % pre-defined colors: https://en.wikibooks.org/wiki/LaTeX/Colors#Predefined_colors
 
+% ## TUM colors
+\definecolor{Pantone300C}{HTML}{0065BD}  % TUM primary blue
+% \definecolor{Pantone301}{HTML}{005293}   % TUM secondary light blue
+% \definecolor{Pantone540}{HTML}{003359}   % TUM secondary dark blue
+% \definecolor{DarkGray}{HTML}{333333}     % TUM secondary dark gray
+\definecolor{MediumGray}{HTML}{808080}   % TUM secondary medium gray
+\definecolor{LightGray}{HTML}{CCCCC6}    % TUM secondary light gray
+\definecolor{Pantone7527}{HTML}{DAD7CB}  % TUM accent gray
+\definecolor{Pantone158}{HTML}{E37222}   % TUM accent orange
+\definecolor{Pantone383}{HTML}{A2AD00}   % TUM accent green
+\definecolor{Pantone283}{HTML}{98C6EA}   % TUM accent very light blue
+\definecolor{Pantone542}{HTML}{64A0C8}   % TUM accent light blue
+
 % ## my colors
 \definecolor{tumblue}{HTML}{0065BD}
 \definecolor{darkblue}{HTML}{001473}
-\definecolor{darkgray}{RGB}{100, 100, 100}
-\definecolor{ddarkgray}{RGB}{66, 66, 66}
+\definecolor{darkgray}{HTML}{646464}
+\definecolor{ddarkgray}{HTML}{444444}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{orange}{rgb}{1.0,0.3,0.01}
 \definecolor{violet}{rgb}{0.4,0.0,0.6}
@@ -247,9 +266,16 @@
 
 
 % # Algorithms (pseudocode)
+\usepackage{algorithm,setspace}
 \usepackage{algorithmicx}
-\usepackage{algpseudocode}
-  \algrenewcommand{\algorithmiccomment}[1]{\hfill$\rightarrow$ #1}  % normal arrow comments
+\usepackage[noend]{algpseudocode}
+  % \algrenewcommand{\algorithmiccomment}[1]{\hfill$\rightarrow #1}  % normal arrow comments
+  \newcommand{\commentsymbol}{//}% or \% or $\triangleright$
+  \algrenewcommand\algorithmiccomment[1]{\hfill \commentsymbol{} \textcolor{darkgray}{#1}}
+  \makeatletter
+  \newcommand{\LineComment}[2][\algorithmicindent]{\Statex \hspace{#1}\commentsymbol{} \textcolor{darkgray}{#2}}
+  \makeatother
+  \newcommand{\varfont}{\texttt}
 
 
 % # Hyperlinks
@@ -274,6 +300,12 @@
   pdfkeywords={{Keyword1},{Keyword2},{Keyword3}},%
   pdfsubject={The Subject},
 }
+% \hypersetup{
+%   pdftitle={\metatitle},%
+%   pdfauthor={\metaauthor},%
+%   pdfkeywords={\metakeywords},%
+%   pdfsubject={\metasubject}
+% }
 
 
 % # Dependent packages (on `hyperref`, `xcolor`, `url` ...)
