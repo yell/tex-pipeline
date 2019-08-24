@@ -1,0 +1,174 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+% automatically loads:
+% * ams{math, symb, text}
+% * geometry
+% * graphicx
+% * xcolor
+% * hyperref
+% ...
+
+\input{preamble/settings_beamer}
+\input{preamble/commands_beamer}
+\input{preamble/math}
+\input{preamble/semantic}
+
+% ## theme
+% \usetheme{Antibes}
+% \usecolortheme[named=Maroon]{structure}
+\usetheme{Warsaw}
+\usecolortheme[named=ForestGreen]{structure}
+% \usetheme{Madrid}
+% \usecolortheme[named=RoyalPurple]{structure}
+
+% ## title
+\title{The Tutorial}
+\subtitle{An Introduction}
+\author{The Author}
+
+% # main
+\begin{document}
+
+  % ## highlight the upcoming section in ToC
+  \AtBeginSection[]{
+    \begin{frame}
+      \frametitle{Outline}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }
+
+  % ## highlight the upcoming subsection in ToC
+  \AtBeginSubsection[]{
+    \begin{frame}
+      \frametitle{Outline}
+      \tableofcontents[currentsubsection]
+    \end{frame}
+  }
+
+  % ## title
+  \begin{frame}
+    \titlepage{}
+  \end{frame}
+
+  % ## initial ToC
+  \begin{frame}{Outline}
+    \tableofcontents
+  \end{frame}
+
+  % ## sections
+  \section{Introduction}
+
+  \begin{frame}{test}
+    some text \emph{emph} as {\color{blue}transfer} as.
+    \\
+    \alert{alert} a \textbf{R} a.
+    \\
+    \begin{IEEEeqnarray}{rCl}
+      \binom{n}{k}
+        &=& \frac{n!}{k!(n-k)!} \label{eq:label1}
+        \\[0.5em]
+        &=& \frac{1}{2\pi i}\oint\limits_{\Gamma} \frac{ (1+z)^n }{z^{k+1}} \ud z
+        \label{eq:label2}
+    \end{IEEEeqnarray}
+  \end{frame}
+
+  \begin{frame}{test2}
+    \begin{itemize}
+      \item $\var X \leq (M - \E X)(\E X - m)$
+      \item $\KL\p{P_{\text{data}} \parallel P_{\text{model}}}$
+      \item $\text{Normal}(\mathrm{x} \mid \mu, \sigma^2 )$
+    \end{itemize}
+    \begin{enumerate}
+      \item 1
+      \item 2
+      \item 2
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}{test3}
+    \begin{table}[h]
+      \centering
+      \caption{Caption}
+      \label{tab:label}
+      \begin{tabular}{cc}
+        \toprule
+        A & $\mathbb{R}$ \\
+        \midrule
+        a & b \\
+        c & d \\
+        \midrule
+        e & f \\
+        g & h \\
+        \bottomrule
+      \end{tabular}
+      % OR caption & label here ...
+    \end{table}
+  \end{frame}
+
+  \begin{frame}
+    \begin{figure}[htb]
+      \centering
+      %
+      \begin{subfigure}[b]{.250\textwidth}
+        \frame{\includegraphics[width=\textwidth]{death-star}}
+        \caption{Caption 1}  % or \subcaption
+        \label{fig:1}
+      \end{subfigure}
+      % \hfill
+      \qquad
+      \qquad
+      \begin{subfigure}[b]{.250\textwidth}
+        \includegraphics[width=\textwidth]{death-star}
+        \caption{Caption 2}
+        \label{fig:2}
+      \end{subfigure}
+      \\
+      \begin{subfigure}[b]{.175\textwidth}
+        \frame{\includegraphics[width=\textwidth]{death-star}}
+        \caption{Caption 3}
+        \label{fig:3}
+      \end{subfigure}
+      \qquad
+      \begin{subfigure}[b]{.175\textwidth}
+        \includegraphics[width=\textwidth]{death-star}
+        \caption{Caption 4}
+        \label{fig:4}
+      \end{subfigure}
+      \qquad
+      \begin{subfigure}[b]{.175\textwidth}
+        \includegraphics[width=\textwidth]{death-star}
+        \caption{Caption 5}
+        \label{fig:5}
+      \end{subfigure}
+      %
+      \caption{The caption. \emph{Top}: top. \emph{Bottom}: bottom.}
+      \label{fig:subfigures}
+    \end{figure}
+  \end{frame}
+
+  \section{Some stuff}
+
+  \begin{frame}{slide}
+  \end{frame}
+
+  \begin{frame}{slide}
+  \end{frame}
+
+  \section{Examples}
+
+  \subsection{Example A}
+
+  \begin{frame}{slide}
+  \end{frame}
+
+  \subsection{Example B}
+
+  \begin{frame}{slide}
+    \citep{tf}
+  \end{frame}
+
+  \begin{frame}{References}
+    \bibliography{bibliography/bib}
+  \end{frame}
+
+
+\end{document}

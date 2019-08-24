@@ -1,0 +1,134 @@
+% # Encoding
+\usepackage[utf8]{inputenc}  % allow utf-8 input
+\usepackage[T1]{fontenc}  % use 8-bit T1 fonts
+
+% # Control structures and utilities
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{xparse}  % more flexible macros with more than one optional argument
+
+% # Document formatting
+\usepackage{blindtext}  % similar to `lipsum`
+\usepackage[activate={true,nocompatibility},final,factor=1100,stretch=10,shrink=10]{microtype}  % microtypography, improves general appearance
+  % * activate - protrusion and expansion
+  % * draft / final
+  % * factor - add 10% to the protrusion amount (default is 1000)
+  % * stretch / shrink - reduce stretchability/shrinkability (default is 20/20)
+\usepackage{lipsum}  % Lorem ipsum
+\usepackage{nicefrac}  % nicer fractions, (compact symbols for 1/2, etc.)
+\usepackage{verbatim}
+\usepackage{xspace}  % clever spacing for new commands (do not eat spaces)
+
+% # Fonts
+\usepackage{pifont}  % special PostScript fonts (e.g. for xmark == ding{53})
+
+% # Bibliography
+\usepackage{csquotes}
+\usepackage[english]{babel}  % set default language to English
+
+  % ## `apacite`
+  \usepackage[natbibapa]{apacite}
+    \bibliographystyle{apacite}
+
+% # Tables
+\usepackage{booktabs}  % professional-quality, elegant tables
+% \usepackage{colortbl}  % add color to LaTeX tables
+% \usepackage{dcolumn}  % columns of different types and alignment
+% \usepackage{longtable}  % enable pagebreaks in a table
+% \usepackage{lscape}  % allow landscape mode
+% \usepackage{multirow}  % tabular cells spanning multiple rows
+\usepackage{tabularx}
+\usepackage{tabu}  % new interface for tables
+
+% # Math
+% ## AMS facilities
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}  % blackboard math symbols
+\usepackage{amssymb}
+  \allowdisplaybreaks
+
+% ## other math fonts
+\usepackage{bbm}
+\usepackage{latexsym}
+\usepackage{mathrsfs}  % \mathscr
+% \usepackage{yhmath}  % extended maths fonts for LaTeX
+
+% ## additional tools
+\usepackage[makeroom]{cancel}
+% \usepackage{commath}  % math delimiters of auto computed size
+\usepackage[retainorgcmds]{IEEEtrantools}  % sophisticated equation arrays
+  \renewcommand*{\IEEEeqnarraydecl}{%
+    \setlength{\jot}{2\IEEEnormaljot}% twice the normal value of \jot
+  }
+% \usepackage{kbordermatrix}  % add column and row labels to matrices
+\usepackage{mathtools}  % \mathclap ...
+\usepackage{physics}  % \bra, \ket, \expval, \mel ...
+                      % & \abs, \norm, \var, \tr, \Tr ...
+
+% # Graphics
+\usepackage{caption}
+\usepackage{float}  % improved interface for floating objects
+\usepackage{movie15}  % inline figures
+\usepackage{subcaption}  % subfigures
+% \usepackage{graphicx}  % enhanced support for graphics
+  \graphicspath{{figures/}{../figures/}}  % in gereral {{subdir1/}...{subdirn/}}
+
+% # Colors
+% \usepackage[dvipsnames]{xcolor}  % color (+ in math mode)
+  % pre-defined colors: https://en.wikibooks.org/wiki/LaTeX/Colors#Predefined_colors
+
+% ## TUM colors
+\definecolor{Pantone300C}{HTML}{0065BD}  % TUM primary blue
+% \definecolor{Pantone301}{HTML}{005293}   % TUM secondary light blue
+% \definecolor{Pantone540}{HTML}{003359}   % TUM secondary dark blue
+% \definecolor{DarkGray}{HTML}{333333}     % TUM secondary dark gray
+\definecolor{MediumGray}{HTML}{808080}   % TUM secondary medium gray
+\definecolor{LightGray}{HTML}{CCCCC6}    % TUM secondary light gray
+\definecolor{Pantone7527}{HTML}{DAD7CB}  % TUM accent gray
+\definecolor{Pantone158}{HTML}{E37222}   % TUM accent orange
+\definecolor{Pantone383}{HTML}{A2AD00}   % TUM accent green
+\definecolor{Pantone283}{HTML}{98C6EA}   % TUM accent very light blue
+\definecolor{Pantone542}{HTML}{64A0C8}   % TUM accent light blue
+
+% ## my colors
+\definecolor{tumblue}{HTML}{0065BD}
+\definecolor{darkblue}{HTML}{001473}
+\definecolor{darkgray}{HTML}{646464}
+\definecolor{ddarkgray}{HTML}{444444}
+% \definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{orange}{rgb}{1.0,0.3,0.01}
+\definecolor{violet}{rgb}{0.4,0.0,0.6}
+\definecolor{yellow}{rgb}{1.0,0.7,0.0}
+\definecolor{boxc}{rgb}{1.0, 1.0, .9}
+\definecolor{mygreen}{rgb}{0, 0.75, 0.18}
+
+% ## define colors for `hyperref`
+\def\linkcolor{tumblue}
+\def\urlcolor{darkblue}
+\def\citecolor{darkblue}
+
+% # Algorithms (pseudocode)
+\usepackage{algorithm,setspace}
+\usepackage{algorithmicx}
+\usepackage[noend]{algpseudocode}
+  % \algrenewcommand{\algorithmiccomment}[1]{\hfill$\rightarrow #1}  % normal arrow comments
+  \newcommand{\commentsymbol}{//}% or \% or $\triangleright$
+  \algrenewcommand\algorithmiccomment[1]{\hfill \commentsymbol{} \textcolor{darkgray}{#1}}
+  \makeatletter
+  \newcommand{\LineComment}[2][\algorithmicindent]{\Statex{}\hspace{#1}\commentsymbol{} \textcolor{darkgray}{#2}}
+  \makeatother
+  \newcommand{\varfont}{\texttt}
+
+% # Hyperlinks
+% \usepackage[linktocpage,colorlinks=true,bookmarksnumbered=true]{hyperref}  % hyperlinks
+
+% ## PDF metadata
+\hypersetup{
+  pdftitle={The Title},%
+  pdfauthor={The Author},%
+  pdfcreator={The Creator},%
+  pdfproducer={The Producer},%
+  pdfkeywords={{Keyword1},{Keyword2},{Keyword3}},%
+  pdfsubject={The Subject},
+}

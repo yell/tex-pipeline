@@ -1,0 +1,23 @@
+% # General LaTeX shortcuts
+\renewcommand{\u}[1]{\underline{#1}}
+
+
+% # Custom symbols
+\newcommand{\gooditem}{\item[\checkmark]}
+\newcommand{\baditem}{\item[\ding{53}]}
+\newcommand{\good}{\textbf{\color{green}[\checkmark]}}
+\newcommand{\bad}{\textbf{\color{red}[\ding{53}]}}
+
+
+% # Graphics
+% ## insert figure (fname, caption for ToC, caption, label, width as fraction of \textwidth)
+\newcommand{\insertfig}[5]{
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=#5\textwidth]{#1}  % width, height, scale, angle ...
+		\end{center}
+		\vspace{-0.4cm}
+		\caption[#2]{#3}
+		\label{fig:#4}
+	\end{figure}
+}
