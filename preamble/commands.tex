@@ -2,6 +2,19 @@
 \renewcommand{\u}[1]{\underline{#1}}
 
 
+% # References
+\newcommand{\refch}[1]{Chapter~\ref{ch:#1}}
+\newcommand{\refsec}[1]{Section~\ref{sec:#1}}
+\newcommand{\refsubsec}[1]{Section~\ref{subsec:#1}}
+\newcommand{\reffig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\reftab}[1]{Table~\ref{tab:#1}}
+\renewcommand{\refeq}[1]{\eqref{tab:#1}}
+\newcommand{\reflst}[1]{Listing~\ref{lst:#1}}
+\newcommand{\refitm}[1]{\ref{itm:#1}}  %e numerated list item
+\newcommand{\refalg}[1]{Algorithm~\ref{alg:#1}}
+\newcommand{\refapp}[1]{Appendix~\ref{app:#1}}
+
+
 % # Custom symbols
 \newcommand{\gooditem}{\item[\checkmark]}
 \newcommand{\baditem}{\item[\ding{53}]}
