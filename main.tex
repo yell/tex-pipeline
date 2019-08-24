@@ -1,7 +1,6 @@
 \documentclass[a4paper,11pt]{article}
 
 \input{preamble/settings}
-
 \input{preamble/commands}
 \input{preamble/math}
 \input{preamble/semantic}
@@ -146,7 +145,7 @@
       \dot{a} \epsilon \phi \varphi \\
       \not\propto \not\subset \not\in \notin \\
       \equiv \doteq \approx \subset \supset \ni \mid \parallel \neq \ne \\
-      \ln p = \Tr A = \tr A = \var X = \KL{P}{Q} = \DKL{P}{Q} \\
+      \ln p = \Tr A = \tr A = \var X = \KL\p{P \parallel Q} = \DKL\p{P \parallel Q} \\
       \star \ast \circ \bullet \oplus \otimes \odot \dagger \ddagger \text{\dag \ddag} \\
       \bigoplus \bigotimes \bigodot \bigcup \bigcap \\
       \leftarrow \gets \rightarrow \to \mapsto
@@ -170,7 +169,7 @@
       = \mathcal{F}\mathfrak{F}
       = \frac{\displaystyle \sum a_{ij} }{\displaystyle \sum b_{ij} }
       = \sum_{\mathclap{\text{big long thing}}} a_k
-      = \frac{\displaystyle \P{\frac{X}{\E X} \leq \epsilon}}
+      = \frac{\displaystyle \P\B{\frac{X}{\E X} \leq \epsilon}}
              {\displaystyle \Pr{\mathrm{Poisson}(\lambda=3) > 5}}
     \end{equation}
 
