@@ -1,8 +1,34 @@
 % ## Semantic formatting
+\newcommand{\alg}[1]{\textsc{#1}}  % sf, tt
 \newcommand{\cmd}[1]{\texttt{#1}}
-% # Semantic font styles for math quantities
-% TODO: scalar, vector, matrix, tensor, dist
-% The default optimizer is \texttt{RMSProp} \textsc?
+
+\newcommand{\s}[1]{\ensuremath{#1}}  % scalar
+\newcommand{\w}[1]{\ensuremath{\mathbf{#1}}}  % vector
+\newcommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}  % vector
+\newcommand{\m}[1]{\ensuremath{\boldsymbol{#1}}}  % matrix
+% sans serif -- tensor
+\newcommand{\g}[1]{\textsc{#1}}  % classical gate
+\newcommand{\q}[1]{\ensuremath{\boldsymbol{\mathsf{#1}}}}  % quantum gate
+% \newcommand{\dist}[1]{\ensuremath{#1}}  % distribution
+
+\renewcommand{\c}[1]{\ensuremath{\mathcal{#1}}}  % concept
+
 % data-spaces \mathcal{X}, \mathcal{Y}; data \mathcal{D}
 % \newcommand{\Pth}{\mathrm{P}_{\theta}}
 % \newcommand{\Pz}{\mathrm{P}_z}
+
+% BM notation
+\renewcommand{\v}{\w{v}}
+\newcommand{\h}{\w{h}}
+\newcommand{\x}{\w{x}}
+\newcommand{\y}{\w{y}}
+\newcommand{\z}{\w{z}}
+
+\newcommand{\W}{\m{W}}
+\renewcommand{\L}{\m{L}}
+\newcommand{\J}{\m{J}}
+\newcommand{\gen}{\ensuremath{\bs{\theta}}}
+\newcommand{\F}{\mathcal{F}}
+
+% Q notation
+\renewcommand{\a}{\ensuremath{\bs{\alpha}}}
