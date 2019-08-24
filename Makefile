@@ -1,11 +1,22 @@
-all:
-	latexmk -pdf -silent main.tex && xdg-open main.pdf
+LATEX=latexmk
+FLAGS=-pdf -silent
+CLEAN_EGREP='\.(acn|acr|alg|aux|aux.bak|bbl|bcf|blg|dvi|fdb_latexmk|fls|idx|idx.bak|ilg|ind|ist|lof|log|lol|lot|nav|out|ps|pdf|slg|slo|sls|snm|syg|syi|synctex.gz|tdo|toc)'
+PDF_OPENER=xdg-open
+MAIN_FILES=main
+
+all: build
+
+build: $(MAIN_FILES:=.pdf)
+
+%: %.pdf
+	$(PDF_OPENER) $< 2>/dev/null
+
+%.pdf: %.tex
+	$(LATEX) $(FLAGS) $<
 
 clean:
-	find . -type f | egrep \
-	'\.(acn|acr|alg|aux|bbl|blg|fdb_latexmk|fls|ist|lof|log|lot|pdf|slg|slo|sls|syg|syi|synctex.gz|tdo|toc)' \
-	| xargs rm
+	find . -not -path './.git/*' -type f | egrep $(CLEAN_EGREP) | xargs rm
 	# latexmk -c
 	# latexmk -C
 
-.PHONY: *
+.PHONY: all build clean
