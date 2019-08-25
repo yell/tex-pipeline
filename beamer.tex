@@ -1,4 +1,5 @@
 \documentclass[xcolor=dvipsnames]{beamer}
+% \documentclass[xcolor=dvipsnames,handout]{beamer}
 % automatically loads:
 % * ams{math, symb, text}
 % * geometry
@@ -7,6 +8,7 @@
 % * hyperref
 % ...
 
+% ## settings and commands
 \input{preamble/settings_beamer}
 \input{preamble/commands_beamer}
 \input{preamble/math}
@@ -14,14 +16,54 @@
 
 % ## theme
 % \usetheme{Antibes}
+% \usetheme{Warsaw}
+% \usetheme{Berlin}
+% \usetheme{Darmstadt}
+% \usetheme{Ilmenau}
+\usetheme{Madrid}
+
+% ## outer theme
+\useoutertheme{default}
+% \useoutertheme{infolines}
+% \useoutertheme{smoothbars}
+% \useoutertheme{smoothtree}
+% [x] \useoutertheme{miniframes}
+% [x] \useoutertheme{sidebar}
+% [x] \useoutertheme{split}
+% [x] \useoutertheme{shadow}
+% [x] \useoutertheme{tree}
+
+% ## inner theme
+% \useinnertheme{default}
+\useinnertheme{circles}
+% [x] \useinnertheme{rectangles}
+% [x] \useinnertheme{rounded}
+% [x] \useinnertheme{inmargin}
+
+% ## color theme
 % \usecolortheme[named=Maroon]{structure}
-\usetheme{Warsaw}
-\usecolortheme[named=ForestGreen]{structure}
-% \usetheme{Madrid}
+% \usecolortheme[named=ForestGreen]{structure}
 % \usecolortheme[named=RoyalPurple]{structure}
+% \usecolortheme[named=ddarkgray]{structure}
+% \usecolortheme[named=Mahogany]{structure}
+\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+\definecolor{dddarkgrey}{rgb}{0.15, 0.15, 0.15}
+\definecolor{darkpersianindigo}{rgb}{0.12 , 0.042, 0.288}
+% \usecolortheme[named=UBCblue]{structure}
+\usecolortheme[named=dddarkgrey]{structure}
+% \usecolortheme[named=darkpersianindigo]{structure}
+
+% ## font theme
+% \usefonttheme{default}
+% \usefonttheme{serif}
+\usefonttheme{professionalfonts}
+% \usefonttheme{structurebold}
+% \usefonttheme{structureitalicserif}
+% \usefonttheme{structuresmallcapsserif}
 
 % ## title
 \title{The Tutorial}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{death-star}}
 \subtitle{An Introduction}
 \author{The Author}
 
@@ -32,7 +74,7 @@
   \AtBeginSection[]{
     \begin{frame}
       \frametitle{Outline}
-      \tableofcontents[currentsection]
+      \tableofcontents[currentsection,hidesubsections]
     \end{frame}
   }
 
@@ -51,36 +93,59 @@
 
   % ## initial ToC
   \begin{frame}{Outline}
-    \tableofcontents
+    \tableofcontents[hideallsubsections]
   \end{frame}
 
   % ## sections
   \section{Introduction}
 
-  \begin{frame}{test}
-    some text \emph{emph} as {\color{blue}transfer} as.
-    \\
-    \alert{alert} a \textbf{R} a.
-    \\
-    \begin{IEEEeqnarray}{rCl}
-      \binom{n}{k}
-        &=& \frac{n!}{k!(n-k)!} \label{eq:label1}
-        \\[0.5em]
-        &=& \frac{1}{2\pi i}\oint\limits_{\Gamma} \frac{ (1+z)^n }{z^{k+1}} \ud z
-        \label{eq:label2}
-    \end{IEEEeqnarray}
+  \begin{frame}[fragile]{test}
+    \begin{definition}
+      some text \emph{emph} as {\color{blue}transfer} as.
+      \\
+      \alert{alert} a \textbf{R} a.
+    \end{definition}
+    %
+    \pause
+    %
+    \begin{exampleblock}{Nice}
+      \begin{IEEEeqnarray}{rCl}
+        \binom{n}{k}
+          &=& \frac{n!}{k!(n-k)!} \label{eq:label1}
+          \\[0.5em]
+          &=& \frac{1}{2\pi i}\oint\limits_{\Gamma} \frac{ (1+z)^n }{z^{k+1}} \ud z
+          \label{eq:label2}
+      \end{IEEEeqnarray}
+    \end{exampleblock}
+  \end{frame}
+
+  \begin{frame}
+    \begin{gather}
+      \textup{\mathsc{RMSProp}} \; \alg{Adam} \; \cmd{pmatrix} \\
+      \s{a} \; \w{x} \; \bs{\alpha} \; \m{A} \; \q{A} \\
+      \g{not}\text{ gate} \; \q{CNOT}\text{ gate} \\
+      \c{X} \; \c{Y} \; \c{D}
+    \end{gather}
   \end{frame}
 
   \begin{frame}{test2}
     \begin{itemize}
       \item $\var X \leq (M - \E X)(\E X - m)$
+      \pause
       \item $\KL\p{P_{\text{data}} \parallel P_{\text{model}}}$
-      \item $\text{Normal}(\mathrm{x} \mid \mu, \sigma^2 )$
+      \pause
+      \item
+      \begin{equation}
+        \text{Normal}(\mathrm{x} \mid \mu, \sigma^2 )
+      \end{equation}
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{test2}
     \begin{enumerate}
-      \item 1
-      \item 2
-      \item 2
+      \item<1-> \alt<2> {\color{blue} A}{\color{grey} a}
+      \item<1-> \alt<3> {\color{blue} B}{\color{grey} b}
+      \item<1-> \alt<4> {\color{blue} C}{\color{grey} c}
     \end{enumerate}
   \end{frame}
 
@@ -93,18 +158,42 @@
         \toprule
         A & $\mathbb{R}$ \\
         \midrule
-        a & b \\
-        c & d \\
+        \onslide<2-> a & b \\
+        \onslide<3-> c & d \\
         \midrule
-        e & f \\
-        g & h \\
+        \onslide<4-> e & f \\
+        \onslide<5-> g & h \\
         \bottomrule
       \end{tabular}
       % OR caption & label here ...
     \end{table}
   \end{frame}
 
-  \begin{frame}
+  \begin{frame}{test4}
+    \begin{center}
+      \begin{tabular}{ccc}
+        \rowcolor{blue!50} a & b \\
+        \rowcolor{blue!30} a & b \\
+        \rowcolor{blue!10} a & b \\
+        \rowcolor{blue!30} a & b \\
+        \rowcolor{blue!10} a & b
+      \end{tabular}
+    \end{center}
+  \end{frame}
+
+  \section{Graphics}
+
+  \begin{frame}{Includegraphics}
+    \begin{center}
+      \includegraphics[height=0.5\textheight]{death-star}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Insertfig}
+    \insertfig{death-star}{ds-toc}{Death Star}{ds}{0.25}
+  \end{frame}
+
+  \begin{frame}{Subfigures}
     \begin{figure}[htb]
       \centering
       %
@@ -143,14 +232,6 @@
       \caption{The caption. \emph{Top}: top. \emph{Bottom}: bottom.}
       \label{fig:subfigures}
     \end{figure}
-  \end{frame}
-
-  \section{Some stuff}
-
-  \begin{frame}{slide}
-  \end{frame}
-
-  \begin{frame}{slide}
   \end{frame}
 
   \section{Examples}
