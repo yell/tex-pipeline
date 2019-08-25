@@ -1,6 +1,6 @@
 LATEX = latexmk
 FLAGS = -pdf -silent
-CLEAN_EGREP = '\.(acn|acr|alg|aux|aux.bak|bbl|bcf|blg|dvi|fdb_latexmk|fls|idx|idx.bak|ilg|ind|ist|lof|log|lol|lot|nav|out|ps|pdf|slg|slo|sls|snm|syg|syi|synctex.gz|tdo|toc)'
+CLEAN_EGREP = '\.(acn|acr|alg|aux|aux.bak|bbl|bcf|blg|dvi|fdb_latexmk|fls|idx|idx.bak|ilg|ind|ist|lof|log|lol|lot|nav|out|ps|pdf|slg|slo|sls|snm|syg|syi|synctex.gz|tdo|toc|vrb)'
 PDF_OPENER = xdg-open
 MAIN_FILES = main beamer
 
