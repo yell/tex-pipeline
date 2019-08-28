@@ -15,7 +15,7 @@ build: $(MAIN_FILES:=.pdf)
 	$(LATEX) $(FLAGS) $<
 
 clean:
-	find . -not -path './.git/*' -type f | egrep $(CLEAN_EGREP) | xargs rm
+	find . -not -path './.git/*' -maxdepth 1 -type f | egrep $(CLEAN_EGREP) | xargs rm
 	# latexmk -c
 	# latexmk -C
 
